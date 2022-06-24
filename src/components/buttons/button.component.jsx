@@ -10,14 +10,14 @@ google sign in
 */
 
 const Button_Type_Classes = {
-    google: 'google-signin',
+    google: 'google-sign-in',
     inverted: 'inverted'
 }
 
 
 const Button = ({children, buttonType, ...otherProps})=>{
     return(
-        <button className={`button-container ${Button_Type_Classes[buttonType]}`} {...otherProps}>
+        <button className={`button-container ${Button_Type_Classes [buttonType]}`} {...otherProps}>
             {children}
         </button>
     )
