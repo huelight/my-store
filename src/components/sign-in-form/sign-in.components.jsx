@@ -38,7 +38,19 @@ const SignIn = ()=>{
 
             // console.log(response)
         } catch(error){
-            
+            switch(error.code){
+                case 'auth/wrong-password': alert('Incorrect Password For Email');
+                break;
+                case  'auth/user-not-found': alert('No user associated with this email');
+                break;
+                default: console.log(error);
+            }
+
+            // if(error.code == 'auth/wrong-password'){
+            //     alert('Incorrect Password For Email')
+            // } else if (error.code == 'auth/user-not-found'){
+
+            // }
         }
     }
     
@@ -73,7 +85,7 @@ const SignIn = ()=>{
             <Button type = 'submit'> Sign In</Button>
             
             {/* Google Sign In Button*/}
-            <Button buttonType = 'google' onClick ={signInWithGoogle}> 
+            <Button type='button' buttonType = 'google' onClick ={signInWithGoogle}> 
             Google Sign In
             </Button>
             
