@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, } from "react";
 import FormInput from "../form-input/form-input.component";
 import { 
     signInWithGooglePoup, 
@@ -15,8 +15,8 @@ const SignIn = ()=>{
     }
 
     const signInWithGoogle = async ()=>{
-        const {user} = await signInWithGooglePoup();
-       await createUserDocumentFromAuth(user)
+        await signInWithGooglePoup();
+      
     }
 
     const [formFields, setFormFields] = useState(defaultFormFields);
@@ -32,8 +32,7 @@ const SignIn = ()=>{
         event.preventDefault();
        
         try{
-            const response = await signInAuthUserWithEmailAndPassword(email, password);
-            console.log(response)
+            const {user} = await signInAuthUserWithEmailAndPassword(email, password);
             resetFormFields();
 
             // console.log(response)
