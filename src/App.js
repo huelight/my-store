@@ -5,6 +5,8 @@ import Authentication from './components/routes/authentication/authentication.co
 import Shop from './components/routes/shop/shop.components';
 import Checkout from './components/routes/checkout/checkout.component';
 
+
+
 const App = ()=>{
   return(
 
