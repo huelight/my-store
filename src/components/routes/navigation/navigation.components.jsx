@@ -6,7 +6,7 @@ import { ReactComponent as MyStoreLogo } from '../../../assets/google-my-busines
 import {UserContext} from '../../../context/user.context';
 import { CartContext } from '../../../context/card.context';
 import {signOutUser} from '../../../utilities/firebase/firebase.utilities'
-import './navigation.styles.scss';
+import {NavigationContainer, NavLinksContainer, NavLink, LogoContainer} from './navigation.styles.jsx';
 
 
 const Navigation =()=>{
@@ -17,25 +17,25 @@ const Navigation =()=>{
     // console.log(currentUser);
     return(
       <Fragment>
-        <div className='navigation'>
-            <Link className='nav-logo' to ='/'>
+        <NavigationContainer>
+            <LogoContainer to ='/'>
           <MyStoreLogo className='logo' />
-          </Link>
-          <div className='nav-links-container'>
-            <Link className='nav-link' to='/shop'>
+          </LogoContainer>
+          <NavLinksContainer>
+            <NavLink to='/shop'>
                 Shop
-            </Link>
+            </NavLink>
             {currentUser ? (
-                <span className='nav-link' onClick={signOutUser}>Sign Out</span>
+                <NavLink as='span' onClick={signOutUser}>Sign Out</NavLink>
               ) : (
-                <Link className='nav-link' to='/auth'>
+                <NavLink to='/auth'>
                 Sign In
-            </Link>
+            </NavLink>
               )}
             <CartIcon />
-          </div>
+          </NavLinksContainer>
           {isCartOpen && <CartDropDown />}
-        </div>
+        </NavigationContainer>
         <Outlet />
       </Fragment>
     )

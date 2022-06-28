@@ -4,7 +4,7 @@ import {
     signInWithGooglePoup, 
     createUserDocumentFromAuth,
     signInAuthUserWithEmailAndPassword } from '../../utilities/firebase/firebase.utilities';
-import Button from '../buttons/button.component'
+import Button, {Button_Type_Classes} from '../buttons/button.component'
 import './sign-in-form.styles.scss';
 
 const SignIn = ()=>{
@@ -84,7 +84,7 @@ const SignIn = ()=>{
             <Button type = 'submit'> Sign In</Button>
             
             {/* Google Sign In Button*/}
-            <Button type='button' buttonType = 'google' onClick ={signInWithGoogle}> 
+            <Button type='button' buttonType = {Button_Type_Classes.google} onClick ={signInWithGoogle}> 
             Google Sign In
             </Button>
             
